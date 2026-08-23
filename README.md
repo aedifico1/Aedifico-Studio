@@ -44,9 +44,10 @@ rebuild the site, re-capture and drop that override in `styles.css`.
 
 ## Before this goes live
 
-- [ ] **Contact email** — the form's fallback and the footer use `hello@aedifico.io` as a
-      placeholder. Replace it with the address you actually want on a public page.
-      Your personal Gmail was deliberately left off.
+- [x] **Contact email** — the form's fallback is `admin@aedifico.io`, on the consulting
+      domain, which already has working mail. Note that `aedifico.studio` has no MX records
+      and no mailbox, so do not put an `@aedifico.studio` address on the page until you set
+      one up. Your personal Gmail was deliberately left off.
 - [ ] **Form endpoint** — `<form action>` points at `https://formspree.io/f/YOUR_FORM_ID`.
       Create a form at formspree.io (free tier is fine) and paste the real ID, or swap in
       Netlify Forms. Until then the form will not deliver anything.
