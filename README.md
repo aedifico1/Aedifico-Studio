@@ -12,6 +12,18 @@ script.js         sticky nav, mobile menu, scroll reveal, hero glow, count-up
 assets/work/      full-page screenshots of the four live client sites (JPEG)
 ```
 
+## Deploying
+
+The repo is the source of truth and GitHub Pages serves `main` from the root. Edit files
+here, then:
+
+```sh
+./deploy.sh "what you changed"
+```
+
+That commits and pushes; Pages rebuilds in about a minute. Editing through the GitHub web UI
+works for a one-line fix, but you lose the local preview, so prefer the script.
+
 ## Running locally
 
 Double-click `index.html`, or serve the folder:
@@ -53,8 +65,18 @@ rebuild the site, re-capture and drop that override in `styles.css`.
       Netlify Forms. Until then the form will not deliver anything.
 - [ ] **Canonical + og:url** — both point at
       `https://aedifico1.github.io/aedifico-web-studio/`. Update if you deploy elsewhere.
-- [ ] **og:image** — no share image is set yet, so a texted link shows a blank box. Export a
-      1200×630 graphic to `assets/og.jpg` and add the `og:image` meta tag.
+- [x] **og:image** — `assets/og.jpg` is a branded 1200×630 card matching the site's hero.
+      Regenerate it after any wording change:
+
+      ```sh
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu \
+        --hide-scrollbars --screenshot=og_raw.png --window-size=1200,630 \
+        --virtual-time-budget=14000 tools/og.html
+      sips -s format jpeg -s formatOptions 82 og_raw.png --out assets/og.jpg && rm og_raw.png
+      ```
+
+      Social platforms cache preview images hard. After changing it, re-scrape the URL in
+      Facebook's Sharing Debugger, or the thumbnail will stay stale for days.
 - [ ] **Phone number** — none is published. Add one to the contact section if you want calls.
 
 ## Copy rules this page follows
