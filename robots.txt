@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aedifico.studio/sitemap.xml
